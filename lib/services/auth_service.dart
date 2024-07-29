@@ -1,5 +1,5 @@
+import 'package:flutter/foundation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 class AuthService with ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -25,9 +25,11 @@ class AuthService with ChangeNotifier {
     }
   }
 
-  Future<void> createUserWithEmailAndPassword(String email, String password) async {
+  Future<void> registerUserWithEmailAndPassword(
+      String email, String password) async {
     try {
-      await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
     } catch (e) {
       print(e);
       rethrow;

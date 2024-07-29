@@ -33,7 +33,7 @@ class RegisterScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () async {
                 try {
-                  await authService.createUserWithEmailAndPassword(
+                  await authService.registerUserWithEmailAndPassword(
                     _emailController.text,
                     _passwordController.text,
                   );

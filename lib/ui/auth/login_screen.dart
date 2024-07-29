@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/auth_service.dart';
-import '../home/home_screen.dart';
-import 'register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
@@ -39,9 +38,7 @@ class LoginScreen extends StatelessWidget {
                     _emailController.text,
                     _passwordController.text,
                   );
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const HomeScreen()),
-                  );
+                  GoRouter.of(context).go('/');
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Login Failed')),
@@ -52,9 +49,7 @@ class LoginScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => RegisterScreen()),
-                );
+                GoRouter.of(context).go('/register');
               },
               child: const Text('Register'),
             ),

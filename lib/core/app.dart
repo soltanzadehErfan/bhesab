@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../services/auth_service.dart';
-import '../ui/auth/login_screen.dart';
+import 'package:bhesab/services/auth_service.dart';
+import 'package:bhesab/router.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -13,9 +12,11 @@ class App extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthService()),
       ],
-      child: MaterialApp(
-        title: 'Flutter Firebase Auth',
-        home: LoginScreen(),
+      child: MaterialApp.router(
+        routerConfig: router,
+        // routerDelegate: router.routerDelegate,
+        // routeInformationParser: router.routeInformationParser,
+        title: 'Bhesab App',
       ),
     );
   }
