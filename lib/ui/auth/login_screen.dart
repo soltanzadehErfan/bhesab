@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-
 import '../../services/auth_service.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -38,10 +37,10 @@ class LoginScreen extends StatelessWidget {
                     _emailController.text,
                     _passwordController.text,
                   );
-                  GoRouter.of(context).go('/');
+                  GoRouter.of(context).go('/home');
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Login Failed')),
+                    SnackBar(content: Text(e.toString())),
                   );
                 }
               },

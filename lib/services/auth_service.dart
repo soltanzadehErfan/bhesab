@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -22,9 +24,9 @@ class AuthService with ChangeNotifier {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
     } on FirebaseAuthException catch (e) {
-      throw _handleAuthException(e);
+      throw _handleRegisterAuthException(e);
     } catch (e) {
-      // Handle other exceptions
+      debugPrint('Registration Error: $e');
       throw Exception('An unexpected error occurred.');
     }
   }
@@ -33,9 +35,9 @@ class AuthService with ChangeNotifier {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
-      throw _handleAuthException(e);
+      throw _handleSignInAuthException(e);
     } catch (e) {
-      // Handle other exceptions
+      debugPrint('Sign-In Error: $e');
       throw Exception('An unexpected error occurred.');
     }
   }
@@ -44,8 +46,8 @@ class AuthService with ChangeNotifier {
     await _auth.signOut();
   }
 
-  // A private method to handle FirebaseAuthException
-  Exception _handleAuthException(FirebaseAuthException e) {
+  // Private method to handle FirebaseAuthException for registration
+  Exception _handleRegisterAuthException(FirebaseAuthException e) {
     String errorMessage;
     switch (e.code) {
       case 'email-already-in-use':
@@ -60,6 +62,32 @@ class AuthService with ChangeNotifier {
       case 'weak-password':
         errorMessage =
             'The password is too weak. Please use a stronger password.';
+        break;
+      default:
+        errorMessage = 'An unexpected error occurred. Please try again.';
+        break;
+    }
+    return Exception(errorMessage);
+  }
+
+  // Private method to handle FirebaseAuthException for sign-in
+  Exception _handleSignInAuthException(FirebaseAuthException e) {
+    debugger();
+    String errorMessage;
+    switch (e.code) {
+      case 'invalid-email':
+        errorMessage = 'The email address is not valid.';
+        break;
+      case 'user-disabled':
+        errorMessage =
+            'The user corresponding to the given email has been disabled.';
+        break;
+      case 'user-not-found':
+        errorMessage = 'There is no user corresponding to the given email.';
+        break;
+      case 'wrong-password':
+        errorMessage =
+            'The password is invalid for the given email, or the account does not have a password set.';
         break;
       default:
         errorMessage = 'An unexpected error occurred. Please try again.';
