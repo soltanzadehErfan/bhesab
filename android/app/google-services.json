@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "537416550673",
+    "project_id": "bhesab-6b24a",
+    "storage_bucket": "bhesab-6b24a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537416550673:android:b750e396d73f5a4c85a4b0",
+        "android_client_info": {
+          "package_name": "com.wofa.bhesab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWYh0AOcRcP4OQsO3JXbBWlt9f4KJK2Dk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
