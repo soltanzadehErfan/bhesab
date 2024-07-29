@@ -1,3 +1,4 @@
+import 'package:bhesab/ui/auth/reset_password.dart';
 import 'package:bhesab/ui/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -17,6 +18,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/login',
       pageBuilder: (context, state) => MaterialPage(child: LoginScreen()),
+    ),
+    GoRoute(
+      path: '/resetPassword',
+      pageBuilder: (context, state) => MaterialPage(child: ResetPassword()),
     ),
     GoRoute(
       path: '/home',
