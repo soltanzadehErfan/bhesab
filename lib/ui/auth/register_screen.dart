@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../services/auth_service.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -40,7 +39,7 @@ class RegisterScreen extends StatelessWidget {
                   Navigator.of(context).pop();
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Registration Failed')),
+                    SnackBar(content: Text(e.toString())),
                   );
                 }
               },

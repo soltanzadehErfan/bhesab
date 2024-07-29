@@ -16,27 +16,55 @@ class AuthService with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> signInWithEmailAndPassword(String email, String password) async {
-    try {
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
-    } catch (e) {
-      print(e);
-      rethrow;
-    }
-  }
-
   Future<void> registerUserWithEmailAndPassword(
       String email, String password) async {
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw _handleAuthException(e);
     } catch (e) {
-      print(e);
-      rethrow;
+      // Handle other exceptions
+      throw Exception('An unexpected error occurred.');
+    }
+  }
+
+  Future<void> signInWithEmailAndPassword(String email, String password) async {
+    try {
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw _handleAuthException(e);
+    } catch (e) {
+      // Handle other exceptions
+      throw Exception('An unexpected error occurred.');
     }
   }
 
   Future<void> signOut() async {
     await _auth.signOut();
+  }
+
+  // A private method to handle FirebaseAuthException
+  Exception _handleAuthException(FirebaseAuthException e) {
+    String errorMessage;
+    switch (e.code) {
+      case 'email-already-in-use':
+        errorMessage = 'An account already exists with this email address.';
+        break;
+      case 'invalid-email':
+        errorMessage = 'The email address is not valid.';
+        break;
+      case 'operation-not-allowed':
+        errorMessage = 'Email/password accounts are not enabled.';
+        break;
+      case 'weak-password':
+        errorMessage =
+            'The password is too weak. Please use a stronger password.';
+        break;
+      default:
+        errorMessage = 'An unexpected error occurred. Please try again.';
+        break;
+    }
+    return Exception(errorMessage);
   }
 }
