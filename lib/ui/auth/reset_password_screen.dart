@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+
 import '../../services/auth_service.dart';
 
-class RegisterScreen extends StatelessWidget {
+class ResetPassword extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
 
-  RegisterScreen({super.key});
+  ResetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
     final authService = Provider.of<AuthService>(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Register')),
+      appBar: AppBar(
+        title: const Text('Reset Password'),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(
@@ -22,35 +23,25 @@ class RegisterScreen extends StatelessWidget {
           children: [
             TextField(
               controller: _emailController,
-              decoration: const InputDecoration(labelText: 'Email'),
-            ),
-            TextField(
-              controller: _passwordController,
-              decoration: const InputDecoration(labelText: 'Password'),
-              obscureText: true,
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                hintText: 'email@example.com',
+              ),
             ),
             const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () async {
                 try {
-                  await authService.registerUserWithEmailAndPassword(
+                  await authService.sendPasswordResetEmail(
                     _emailController.text,
-                    _passwordController.text,
                   );
-                  Navigator.of(context).pop();
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text(e.toString())),
                   );
                 }
               },
-              child: const Text('Register'),
-            ),
-              TextButton(
-              onPressed: () {
-                GoRouter.of(context).go('/login');
-              },
-              child: const Text('login'),
+              child: const Text('Reset password'),
             ),
           ],
         ),

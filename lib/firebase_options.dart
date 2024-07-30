@@ -58,6 +58,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '537416550673',
     projectId: 'bhesab-6b24a',
     storageBucket: 'bhesab-6b24a.appspot.com',
+    iosClientId: '537416550673-ks6v027u3bmtg1sl32hbqvlrijl1296p.apps.googleusercontent.com',
     iosBundleId: 'com.example.bhesab',
   );
+
 }

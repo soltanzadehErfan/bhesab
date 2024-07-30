@@ -1,8 +1,8 @@
+import 'package:bhesab/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../services/auth_service.dart';
-import '../ui/auth/login_screen.dart';
+import 'package:bhesab/services/auth_service.dart';
+import 'package:bhesab/router.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -12,10 +12,12 @@ class App extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthService()),
+        ChangeNotifierProvider(create: (_) => ThemeNotifier()),
       ],
-      child: MaterialApp(
-        title: 'Flutter Firebase Auth',
-        home: LoginScreen(),
+      child: MaterialApp.router(
+        theme: darkTheme,
+        routerConfig: router,
+        title: 'Bhesab App',
       ),
     );
   }
