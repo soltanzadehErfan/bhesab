@@ -13,10 +13,7 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthService()),
       ],
       child: MaterialApp.router(
-        theme: ThemeData.dark(),
         routerConfig: router,
-        // routerDelegate: router.routerDelegate,
-        // routeInformationParser: router.routeInformationParser,
         title: 'Bhesab App',
       ),
     );
