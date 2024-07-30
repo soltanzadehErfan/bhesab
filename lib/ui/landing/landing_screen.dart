@@ -14,10 +14,10 @@ class LandingScreen extends StatelessWidget {
           children: [
             const Icon(
               Icons.add_chart_rounded,
-              size: 64.0,
+              size: 128.0,
             ),
             const SizedBox(
-              height: 64.0,
+              height: 32.0,
             ),
             const Text(
               'Bhesab helps you to track expenses, manage income, create invoices, generate financial reports, set budgets, and ensure data security.',

@@ -1,5 +1,18 @@
 import 'package:flutter/material.dart';
 
+class ThemeNotifier extends ChangeNotifier {
+  bool _isDarkTheme = false;
+
+  bool get isDarkTheme => _isDarkTheme;
+
+  ThemeData get currentTheme => _isDarkTheme ? darkTheme : lightTheme;
+
+  void toggleTheme() {
+    _isDarkTheme = !_isDarkTheme;
+    notifyListeners();
+  }
+}
+
 final ThemeData lightTheme = ThemeData(
   colorScheme: const ColorScheme(
     brightness: Brightness.light,
@@ -24,6 +37,9 @@ final ThemeData lightTheme = ThemeData(
     color: Colors.amber,
     indent: 64.0,
     endIndent: 64.0,
+  ),
+  iconTheme: const IconThemeData(
+    color: Colors.black54,
   ),
 );
 
@@ -51,5 +67,8 @@ final ThemeData darkTheme = ThemeData(
     color: Colors.amber,
     indent: 64.0,
     endIndent: 64.0,
+  ),
+  iconTheme: const IconThemeData(
+    color: Colors.white54,
   ),
 );

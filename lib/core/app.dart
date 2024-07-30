@@ -12,6 +12,7 @@ class App extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthService()),
+        ChangeNotifierProvider(create: (_) => ThemeNotifier()),
       ],
       child: MaterialApp.router(
         theme: darkTheme,
