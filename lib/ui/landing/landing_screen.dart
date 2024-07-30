@@ -38,7 +38,7 @@ class LandingScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 64.0,
+              height: 32.0,
             ),
             TextButton(
               style: const ButtonStyle(
