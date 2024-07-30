@@ -18,7 +18,7 @@ class LandingScreen extends StatelessWidget {
           onPressed: () {
             Provider.of<ThemeNotifier>(context, listen: false).toggleTheme();
           },
-          icon: const Icon(Icons.theater_comedy_rounded),
+          icon: Icon(Provider.of<ThemeNotifier>(context).themeIcon),
         ),
       ),
       body: Padding(
