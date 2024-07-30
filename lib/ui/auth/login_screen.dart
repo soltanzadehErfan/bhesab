@@ -24,7 +24,10 @@ class LoginScreen extends StatelessWidget {
               children: [
                 Text(
                   'Sign in',
-                  style: TextStyle(fontSize: 32.0),
+                  style: TextStyle(
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
@@ -44,7 +47,8 @@ class LoginScreen extends StatelessWidget {
                 GoRouter.of(context).go('/resetPassword');
               },
               style: const ButtonStyle(
-                  backgroundColor: WidgetStateColor.transparent),
+                backgroundColor: WidgetStateColor.transparent,
+              ),
               child: const Text(
                 'Forgot password',
                 style: TextStyle(color: Colors.purple),
@@ -52,6 +56,11 @@ class LoginScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16.0),
             TextButton(
+              style: const ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(
+                  Colors.deepPurple,
+                ),
+              ),
               onPressed: () async {
                 try {
                   await authService.signInWithEmailAndPassword(

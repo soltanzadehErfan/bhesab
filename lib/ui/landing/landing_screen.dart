@@ -27,6 +27,11 @@ class LandingScreen extends StatelessWidget {
               height: 64.0,
             ),
             TextButton(
+              style: const ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(
+                  Colors.deepPurple,
+                ),
+              ),
               onPressed: () {
                 GoRouter.of(context).go('/login');
               },

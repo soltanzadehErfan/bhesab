@@ -28,7 +28,7 @@ final ThemeData lightTheme = ThemeData(
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(
       backgroundColor: WidgetStatePropertyAll(
-        Colors.black38,
+        Colors.black26,
       ),
       iconColor: WidgetStatePropertyAll(Colors.purpleAccent),
     ),
@@ -58,7 +58,7 @@ final ThemeData darkTheme = ThemeData(
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(
       backgroundColor: WidgetStatePropertyAll(
-        Colors.white38,
+        Colors.white24,
       ),
       iconColor: WidgetStatePropertyAll(Colors.purpleAccent),
     ),
