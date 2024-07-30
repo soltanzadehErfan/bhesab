@@ -1,3 +1,4 @@
+import 'package:bhesab/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bhesab/services/auth_service.dart';
@@ -13,6 +14,8 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthService()),
       ],
       child: MaterialApp.router(
+        theme: darkTheme,
+        // theme: lightTheme,
         routerConfig: router,
         title: 'Bhesab App',
       ),

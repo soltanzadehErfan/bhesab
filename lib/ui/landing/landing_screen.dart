@@ -7,44 +7,38 @@ class LandingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Bhesab'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Icon(
+              Icons.add_chart_rounded,
+              size: 64.0,
+            ),
+            const SizedBox(
+              height: 64.0,
+            ),
             const Text(
               'Bhesab helps you to track expenses, manage income, create invoices, generate financial reports, set budgets, and ensure data security.',
-              style: TextStyle(color: Colors.black54,fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 64,
+              height: 64.0,
             ),
             TextButton(
               onPressed: () {
                 GoRouter.of(context).go('/login');
               },
-              style: const ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(
-                  Colors.black12,
-                ),
-              ),
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
                     Icons.email_rounded,
-                    color: Colors.purple,
                   ),
-                  SizedBox(width: 16),
+                  SizedBox(width: 16.0),
                   Text(
                     'Continue with email',
-                    style: TextStyle(
-                      color: Colors.black,
-                    ),
                   ),
                 ],
               ),
