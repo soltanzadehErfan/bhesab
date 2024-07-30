@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>537416550673-ks6v027u3bmtg1sl32hbqvlrijl1296p.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.537416550673-ks6v027u3bmtg1sl32hbqvlrijl1296p</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBz8Ke9ojQXQ_pfZ3aTXzbExUjrrv0K818</string>
+	<key>GCM_SENDER_ID</key>
+	<string>537416550673</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.bhesab</string>
+	<key>PROJECT_ID</key>
+	<string>bhesab-6b24a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bhesab-6b24a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:537416550673:ios:b1fc65a4028dd9d785a4b0</string>
+</dict>
+</plist>
