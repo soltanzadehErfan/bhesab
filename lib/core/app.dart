@@ -20,10 +20,11 @@ class App extends StatelessWidget {
           return MaterialApp.router(
             theme: themeNotifier.currentTheme,
             routerConfig: router,
-            title: 'Bhesab App',
+            title: 'Bhesab',
           );
         },
       ),
     );
   }
 }
+

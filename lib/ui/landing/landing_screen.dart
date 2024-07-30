@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+
+import '../../services/theme_service.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});
@@ -7,6 +10,17 @@ class LandingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Bhesab',
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Provider.of<ThemeNotifier>(context, listen: false).toggleTheme();
+          },
+          icon: const Icon(Icons.theater_comedy_rounded),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(
