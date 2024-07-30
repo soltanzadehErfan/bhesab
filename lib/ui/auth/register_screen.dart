@@ -24,10 +24,10 @@ class RegisterScreen extends StatelessWidget {
               controller: _emailController,
               decoration: const InputDecoration(labelText: 'Email'),
             ),
+            const SizedBox(height: 8.0),
             TextField(
               controller: _passwordController,
               decoration: const InputDecoration(labelText: 'Password'),
-              obscureText: true,
             ),
             const SizedBox(height: 32),
             ElevatedButton(
@@ -46,7 +46,7 @@ class RegisterScreen extends StatelessWidget {
               },
               child: const Text('Register'),
             ),
-              TextButton(
+            TextButton(
               onPressed: () {
                 GoRouter.of(context).go('/login');
               },

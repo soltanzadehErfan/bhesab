@@ -9,7 +9,7 @@ class LandingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeService = Provider.of<ThemeNotifier>(context);
+        final themeService = Provider.of<ThemeNotifier>(context);
 
     return Scaffold(
       appBar: AppBar(

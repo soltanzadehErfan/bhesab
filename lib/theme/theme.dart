@@ -28,6 +28,11 @@ final ThemeData lightTheme = ThemeData(
   iconTheme: const IconThemeData(
     color: Colors.black54,
   ),
+  inputDecorationTheme: const InputDecorationTheme(
+      focusedBorder: UnderlineInputBorder(
+        borderSide: BorderSide(color: Colors.purple),
+      ),
+      labelStyle: TextStyle(color: Colors.amber)),
 );
 
 final ThemeData darkTheme = ThemeData(
@@ -58,4 +63,9 @@ final ThemeData darkTheme = ThemeData(
   iconTheme: const IconThemeData(
     color: Colors.white54,
   ),
+  inputDecorationTheme: const InputDecorationTheme(
+      focusedBorder: UnderlineInputBorder(
+        borderSide: BorderSide(color: Colors.purple),
+      ),
+      labelStyle: TextStyle(color: Colors.amber)),
 );
