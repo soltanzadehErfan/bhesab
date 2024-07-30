@@ -23,7 +23,7 @@ final ThemeData lightTheme = ThemeData(
     error: Colors.red,
     onError: Colors.red,
     surface: Colors.white,
-    onSurface: Colors.black54,
+    onSurface: Colors.black,
   ),
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(
@@ -53,7 +53,7 @@ final ThemeData darkTheme = ThemeData(
     error: Colors.red,
     onError: Colors.red,
     surface: Colors.black,
-    onSurface: Colors.white54,
+    onSurface: Colors.white,
   ),
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(

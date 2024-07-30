@@ -15,8 +15,7 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ThemeNotifier()),
       ],
       child: MaterialApp.router(
-        theme: darkTheme,
-        // theme: lightTheme,
+        theme: lightTheme,
         routerConfig: router,
         title: 'Bhesab App',
       ),

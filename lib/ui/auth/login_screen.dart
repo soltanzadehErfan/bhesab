@@ -14,12 +14,21 @@ class LoginScreen extends StatelessWidget {
     final authService = Provider.of<AuthService>(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
       body: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  'Sign in',
+                  style: TextStyle(fontSize: 32.0),
+                ),
+              ],
+            ),
+            const SizedBox(height: 32.0),
             TextField(
               controller: _emailController,
               decoration: const InputDecoration(labelText: 'Email'),
@@ -29,8 +38,20 @@ class LoginScreen extends StatelessWidget {
               decoration: const InputDecoration(labelText: 'Password'),
               obscureText: true,
             ),
-            const SizedBox(height: 32),
-            ElevatedButton(
+            const SizedBox(height: 16.0),
+            TextButton(
+              onPressed: () {
+                GoRouter.of(context).go('/resetPassword');
+              },
+              style: const ButtonStyle(
+                  backgroundColor: WidgetStateColor.transparent),
+              child: const Text(
+                'Forgot password',
+                style: TextStyle(color: Colors.purple),
+              ),
+            ),
+            const SizedBox(height: 16.0),
+            TextButton(
               onPressed: () async {
                 try {
                   await authService.signInWithEmailAndPassword(
@@ -44,19 +65,36 @@ class LoginScreen extends StatelessWidget {
                   );
                 }
               },
-              child: const Text('Login'),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.login_rounded),
+                  SizedBox(width: 16.0),
+                  Text('Sign in'),
+                ],
+              ),
             ),
-            TextButton(
-              onPressed: () {
-                GoRouter.of(context).go('/register');
-              },
-              child: const Text('Register'),
-            ),
-            TextButton(
-              onPressed: () {
-                GoRouter.of(context).go('/resetPassword');
-              },
-              child: const Text('Reset password'),
+            const SizedBox(height: 16.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Don't have an account?"),
+                TextButton(
+                  onPressed: () {
+                    GoRouter.of(context).go('/register');
+                  },
+                  style: const ButtonStyle(
+                    backgroundColor: WidgetStateColor.transparent,
+                  ),
+                  child: const Text(
+                    'Sign up',
+                    style: TextStyle(
+                      color: Colors.purple,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
