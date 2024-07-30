@@ -9,6 +9,8 @@ class LandingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeService = Provider.of<ThemeNotifier>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -16,7 +18,7 @@ class LandingScreen extends StatelessWidget {
         ),
         leading: IconButton(
           onPressed: () {
-            Provider.of<ThemeNotifier>(context, listen: false).toggleTheme();
+            themeService.toggleTheme();
           },
           icon: Icon(Provider.of<ThemeNotifier>(context).themeIcon),
         ),
