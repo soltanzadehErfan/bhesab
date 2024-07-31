@@ -11,24 +11,53 @@ final GoRouter router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      pageBuilder: (context, state) =>
-          const MaterialPage(child: LandingScreen()),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        child: const LandingScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+          opacity: animation,
+          child: child,
+        ),
+      ),
     ),
     GoRoute(
       path: '/register',
-      pageBuilder: (context, state) => MaterialPage(child: RegisterScreen()),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        child: RegisterScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+          opacity: animation,
+          child: child,
+        ),
+      ),
     ),
     GoRoute(
       path: '/login',
-      pageBuilder: (context, state) => MaterialPage(child: LoginScreen()),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        child: LoginScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+          opacity: animation,
+          child: child,
+        ),
+      ),
     ),
     GoRoute(
       path: '/resetPassword',
-      pageBuilder: (context, state) => MaterialPage(child: ResetPassword()),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        child: ResetPassword(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+          opacity: animation,
+          child: child,
+        ),
+      ),
     ),
     GoRoute(
       path: '/home',
-      pageBuilder: (context, state) => const MaterialPage(child: HomeScreen()),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        child: const HomeScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+          opacity: animation,
+          child: child,
+        ),
+      ),
     ),
   ],
 );

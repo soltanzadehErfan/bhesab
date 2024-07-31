@@ -18,6 +18,7 @@ class App extends StatelessWidget {
       child: Consumer<ThemeNotifier>(
         builder: (context, themeNotifier, child) {
           return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
             theme: themeNotifier.currentTheme,
             routerConfig: router,
             title: 'Bhesab',
@@ -27,4 +28,3 @@ class App extends StatelessWidget {
     );
   }
 }
-
