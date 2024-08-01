@@ -34,6 +34,9 @@ final ThemeData lightTheme = ThemeData(
     ),
     labelStyle: TextStyle(color: Colors.deepPurple),
   ),
+  snackBarTheme: const SnackBarThemeData(
+    behavior: SnackBarBehavior.floating,
+  ),
 );
 
 final ThemeData darkTheme = ThemeData(
@@ -69,5 +72,8 @@ final ThemeData darkTheme = ThemeData(
       borderSide: BorderSide(color: Colors.purple),
     ),
     labelStyle: TextStyle(color: Colors.deepPurple),
+  ),
+  snackBarTheme: const SnackBarThemeData(
+    behavior: SnackBarBehavior.floating,
   ),
 );

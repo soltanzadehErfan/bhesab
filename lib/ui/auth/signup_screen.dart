@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/auth_service.dart';
@@ -19,6 +20,19 @@ class RegisterScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  'Sign up',
+                  style: TextStyle(
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 32.0),
             TextField(
               controller: _emailController,
               decoration: const InputDecoration(labelText: 'Email'),
@@ -28,7 +42,7 @@ class RegisterScreen extends StatelessWidget {
               controller: _passwordController,
               decoration: const InputDecoration(labelText: 'Password'),
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 32.0),
             TextButton(
               style: const ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(
@@ -41,7 +55,7 @@ class RegisterScreen extends StatelessWidget {
                     _emailController.text,
                     _passwordController.text,
                   );
-                  Navigator.of(context).pop();
+                  GoRouter.of(context).go('/login');
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text(e.toString())),
@@ -51,10 +65,6 @@ class RegisterScreen extends StatelessWidget {
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.email_rounded,
-                  ),
-                  SizedBox(width: 16.0),
                   Text(
                     'Sign up',
                   ),
