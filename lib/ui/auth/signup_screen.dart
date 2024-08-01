@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+
 import '../../services/auth_service.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -14,7 +14,6 @@ class RegisterScreen extends StatelessWidget {
     final authService = Provider.of<AuthService>(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Register')),
       body: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(
@@ -24,13 +23,18 @@ class RegisterScreen extends StatelessWidget {
               controller: _emailController,
               decoration: const InputDecoration(labelText: 'Email'),
             ),
+            const SizedBox(height: 8.0),
             TextField(
               controller: _passwordController,
               decoration: const InputDecoration(labelText: 'Password'),
-              obscureText: true,
             ),
             const SizedBox(height: 32),
-            ElevatedButton(
+            TextButton(
+              style: const ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(
+                  Colors.deepPurple,
+                ),
+              ),
               onPressed: () async {
                 try {
                   await authService.registerUserWithEmailAndPassword(
@@ -44,13 +48,18 @@ class RegisterScreen extends StatelessWidget {
                   );
                 }
               },
-              child: const Text('Register'),
-            ),
-              TextButton(
-              onPressed: () {
-                GoRouter.of(context).go('/login');
-              },
-              child: const Text('login'),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.email_rounded,
+                  ),
+                  SizedBox(width: 16.0),
+                  Text(
+                    'Sign up',
+                  ),
+                ],
+              ),
             ),
           ],
         ),

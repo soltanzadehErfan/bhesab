@@ -17,29 +17,17 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for android - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return android;
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -60,6 +48,44 @@ class DefaultFirebaseOptions {
     storageBucket: 'bhesab-6b24a.appspot.com',
     iosClientId: '537416550673-ks6v027u3bmtg1sl32hbqvlrijl1296p.apps.googleusercontent.com',
     iosBundleId: 'com.example.bhesab',
+  );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyCz5__QH_EjiqnlT_KQeUkBmzOSM5sDENo',
+    appId: '1:537416550673:web:e33a1a1cbca5d00985a4b0',
+    messagingSenderId: '537416550673',
+    projectId: 'bhesab-6b24a',
+    authDomain: 'bhesab-6b24a.firebaseapp.com',
+    storageBucket: 'bhesab-6b24a.appspot.com',
+    measurementId: 'G-KBFC5BD76T',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBz8Ke9ojQXQ_pfZ3aTXzbExUjrrv0K818',
+    appId: '1:537416550673:ios:b1fc65a4028dd9d785a4b0',
+    messagingSenderId: '537416550673',
+    projectId: 'bhesab-6b24a',
+    storageBucket: 'bhesab-6b24a.appspot.com',
+    iosClientId: '537416550673-ks6v027u3bmtg1sl32hbqvlrijl1296p.apps.googleusercontent.com',
+    iosBundleId: 'com.example.bhesab',
+  );
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyAWYh0AOcRcP4OQsO3JXbBWlt9f4KJK2Dk',
+    appId: '1:537416550673:android:b750e396d73f5a4c85a4b0',
+    messagingSenderId: '537416550673',
+    projectId: 'bhesab-6b24a',
+    storageBucket: 'bhesab-6b24a.appspot.com',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyCz5__QH_EjiqnlT_KQeUkBmzOSM5sDENo',
+    appId: '1:537416550673:web:5e11ebda0641a6f385a4b0',
+    messagingSenderId: '537416550673',
+    projectId: 'bhesab-6b24a',
+    authDomain: 'bhesab-6b24a.firebaseapp.com',
+    storageBucket: 'bhesab-6b24a.appspot.com',
+    measurementId: 'G-Y4ST598B55',
   );
 
 }

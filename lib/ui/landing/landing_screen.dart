@@ -1,12 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+
+import '../../services/theme_service.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+        final themeService = Provider.of<ThemeNotifier>(context);
+
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Bhesab',
+        ),
+        leading: IconButton(
+          onPressed: () {
+            themeService.toggleTheme();
+          },
+          icon: Icon(Provider.of<ThemeNotifier>(context).themeIcon),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(
@@ -24,7 +40,7 @@ class LandingScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 64.0,
+              height: 32.0,
             ),
             TextButton(
               style: const ButtonStyle(

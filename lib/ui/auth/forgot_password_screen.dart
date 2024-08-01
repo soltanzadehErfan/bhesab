@@ -13,14 +13,32 @@ class ResetPassword extends StatelessWidget {
     final authService = Provider.of<AuthService>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Reset Password'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  'Forgot password',
+                  style: TextStyle(
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8.0),
+            const Row(
+              children: [
+                Text(
+                  'Please enter the registered email',
+                ),
+              ],
+            ),
+            const SizedBox(height: 32.0),
             TextField(
               controller: _emailController,
               decoration: const InputDecoration(
@@ -29,7 +47,12 @@ class ResetPassword extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 32),
-            ElevatedButton(
+            TextButton(
+              style: const ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(
+                  Colors.deepPurple,
+                ),
+              ),
               onPressed: () async {
                 try {
                   await authService.sendPasswordResetEmail(
@@ -41,7 +64,12 @@ class ResetPassword extends StatelessWidget {
                   );
                 }
               },
-              child: const Text('Reset password'),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Reset password'),
+                ],
+              ),
             ),
           ],
         ),

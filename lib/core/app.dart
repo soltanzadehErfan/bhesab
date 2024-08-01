@@ -1,8 +1,9 @@
-import 'package:bhesab/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:bhesab/services/auth_service.dart';
-import 'package:bhesab/router.dart';
+
+import '../services/auth_service.dart';
+import '../services/theme_service.dart';
+import '../router.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -14,11 +15,16 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthService()),
         ChangeNotifierProvider(create: (_) => ThemeNotifier()),
       ],
-      child: MaterialApp.router(
-        theme: darkTheme,
-        routerConfig: router,
-        title: 'Bhesab App',
+      child: Consumer<ThemeNotifier>(
+        builder: (context, themeNotifier, child) {
+          return MaterialApp.router(
+            theme: themeNotifier.currentTheme,
+            routerConfig: router,
+            title: 'Bhesab',
+          );
+        },
       ),
     );
   }
 }
+

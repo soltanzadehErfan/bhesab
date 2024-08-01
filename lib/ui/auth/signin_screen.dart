@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+
 import '../../services/auth_service.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -77,8 +78,6 @@ class LoginScreen extends StatelessWidget {
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.login_rounded),
-                  SizedBox(width: 16.0),
                   Text('Sign in'),
                 ],
               ),

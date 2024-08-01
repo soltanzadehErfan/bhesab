@@ -27,6 +27,7 @@ class HomeScreen extends StatelessWidget {
       body: const Center(
         child: Text('Welcome!'),
       ),
+      bottomSheet: const BottomAppBar(),
     );
   }
 }
