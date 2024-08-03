@@ -28,7 +28,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace = "com.wofa.bhesab"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 23
     ndkVersion = flutter.ndkVersion
 
     compileOptions {

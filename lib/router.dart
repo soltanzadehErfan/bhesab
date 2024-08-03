@@ -1,11 +1,11 @@
-import 'package:bhesab/ui/home/home_screen.dart';
-import 'package:bhesab/ui/landing/landing_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:bhesab/ui/auth/register_screen.dart';
-import 'package:bhesab/ui/auth/login_screen.dart';
 
-import 'ui/auth/reset_password_screen.dart';
+import 'ui/home/home_screen.dart';
+import 'ui/auth/signup_screen.dart';
+import 'ui/auth/signin_screen.dart';
+import 'ui/landing/landing_screen.dart';
+import 'ui/auth/forgot_password_screen.dart';
 
 final GoRouter router = GoRouter(
   routes: [

@@ -29,10 +29,14 @@ final ThemeData lightTheme = ThemeData(
     color: Colors.black54,
   ),
   inputDecorationTheme: const InputDecorationTheme(
-      focusedBorder: UnderlineInputBorder(
-        borderSide: BorderSide(color: Colors.purple),
-      ),
-      labelStyle: TextStyle(color: Colors.amber)),
+    focusedBorder: UnderlineInputBorder(
+      borderSide: BorderSide(color: Colors.purple),
+    ),
+    labelStyle: TextStyle(color: Colors.deepPurple),
+  ),
+  snackBarTheme: const SnackBarThemeData(
+    behavior: SnackBarBehavior.floating,
+  ),
 );
 
 final ThemeData darkTheme = ThemeData(
@@ -64,8 +68,12 @@ final ThemeData darkTheme = ThemeData(
     color: Colors.white54,
   ),
   inputDecorationTheme: const InputDecorationTheme(
-      focusedBorder: UnderlineInputBorder(
-        borderSide: BorderSide(color: Colors.purple),
-      ),
-      labelStyle: TextStyle(color: Colors.amber)),
+    focusedBorder: UnderlineInputBorder(
+      borderSide: BorderSide(color: Colors.purple),
+    ),
+    labelStyle: TextStyle(color: Colors.deepPurple),
+  ),
+  snackBarTheme: const SnackBarThemeData(
+    behavior: SnackBarBehavior.floating,
+  ),
 );
